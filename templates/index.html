@@ -16,6 +16,26 @@
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .alert-message {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px 15px;
+    font-size: clamp(14px, 4vw, 18px); /* responsive text */
+    position: relative;
+    top: 0; /* remove fixed offset */
+    max-width: 90%;
+}
+
+/* Optional: spacing adjustment for larger screens */
+@media (min-width: 768px) {
+    .alert-message {
+        margin-top: 40px;
+    }
+}
+    </style>
 </head>
 <body>
     
@@ -53,9 +73,9 @@
         </div>
     </div>
     <div>
-         {% if messages %}
+     {% if messages %}
   {% for message in messages %}
-    <div style="color:red; font-weight:bold; text-align:center;font-size: 18px;margin-top: 1%;position: relative;top:100px;">
+    <div class="alert-message">
         {{ message }}
     </div>
   {% endfor %}
